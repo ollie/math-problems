@@ -40,7 +40,7 @@ def is_prime(n):
         return True
 
     for i in range(2, (n // 2) + 1):
-        if n % 2 == 0:
+        if n % i == 0:
             return False
 
     return True
