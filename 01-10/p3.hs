@@ -28,9 +28,4 @@ nextPrime n = findNextPrime (n + 1) where
     | otherwise = findNextPrime (n + 1)
 
 isPrime :: Integral a => a -> Bool
-isPrime 1 = True
-isPrime n = findFactors 2 (n `div` 2) where
-  findFactors i max
-    | i == (max + 1) = True
-    | n `mod` i == 0 = False
-    | otherwise      = findFactors (i + 1) max
+isPrime x = null $ filter (\y ->  x `mod` y == 0) $ takeWhile (\y -> y * y <= x) [2..]
